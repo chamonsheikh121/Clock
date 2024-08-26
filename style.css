@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Anton", sans-serif;
+
+}
+
+:root {
+    --red-color: rgb(227, 48, 48);
+    --primary-color: white;
+    --white-color: #fbf7fb;
+    --black-color: rgb(62, 61, 61);
+}
+
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: var(--primary-color);
+}
+
+body.dark {
+    --red-color: rgb(227, 48, 48);
+    --primary-color: black;
+    --white-color: black;
+    --black-color: white;
+}
+
+.container .clock {
+    width: 400px;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--primary-color);
+    box-shadow: 0px 0px 50px 10px rgb(203, 203, 203);
+    border-radius: 50%;
+    position: relative;
+}
+
+.clock label {
+    position: absolute;
+    text-align: center;
+    inset: 20px;
+    transform: rotate(calc(var(--i)* (360deg / 12)));
+}
+
+.clock label span {
+    display: block;
+    font-size: 30px;
+    font-weight: 500;
+    color: var(--black-color);
+    transform: rotate(calc(var(--i)* (-360deg / 12)));
+}
+
+.indicator {
+    position: absolute;
+    height: 10px;
+    width: 10px;
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    /* background-color: red; */
+}
+
+.indicator::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: var(--black-color);
+    border-radius: 50%;
+    border: 4px solid var(--red-color)
+}
+
+.indicator .hand {
+    position: absolute;
+    height: 130px;
+    width: 3px;
+    bottom: 0;
+    border-radius: 2px;
+    text-align: center;
+    transform-origin: bottom;
+    background-color: var(--red-color);
+}
+
+.hand.minute {
+    height: 100px;
+    width: 5px;
+    background-color: var(--black-color);
+
+}
+
+.hand.hour {
+    height: 60px;
+    width: 7px;
+    background-color: var(--black-color);
+}
+
+.mode-switch {
+    padding: 10px;
+    color: var(--white-color);
+    background-color: var(--black-color);
+    text-align: center;
+    max-width: 200px;
+    margin: 0px auto;
+    margin-top: 60px;
+    cursor: pointer;
+}
